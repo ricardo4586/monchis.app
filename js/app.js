@@ -3,9 +3,8 @@
 // =========================================================================
 const CONFIG = {
   marca: "MONCHIS",
-  whatsappDestino: "912167997", // Cambia esto por tu número (51 + 9 dígitos)
-  apiUrl: "https://api.shalom-api.lat/public/agencies?per_page=1000",
-  respaldoUrl: "./agencias.json", // copia local por si la API falla
+  whatsappDestino: "936280744", // Cambia esto por tu número (51 + 9 dígitos)
+  jsonUrl: "./agencias.json", // lista de agencias (archivo local)
   timeoutMs: 8000,
   prefijoPedido: "MON", // el código del pedido empieza con esto
   usarIconos: true // pon false si en tu WhatsApp los iconos salen como "?" o "�"
@@ -39,7 +38,7 @@ const DOM = {
 };
 
 // =========================================================================
-// 1. OBTENER Y NORMALIZAR AGENCIAS (API → respaldo local)
+// 1. OBTENER Y NORMALIZAR AGENCIAS (desde agencias.json)
 // =========================================================================
 async function pedirJson(url) {
   const controlador = new AbortController();
@@ -61,14 +60,8 @@ function extraerLista(json) {
 }
 
 async function obtenerAgencias() {
-  try {
-    actualizarEstado("Cargando agencias de Shalom...");
-    return extraerLista(await pedirJson(CONFIG.apiUrl));
-  } catch (errorApi) {
-    console.warn("[API Shalom no disponible, usando respaldo local]:", errorApi);
-    actualizarEstado("Usando lista local de agencias...");
-    return extraerLista(await pedirJson(CONFIG.respaldoUrl));
-  }
+  actualizarEstado("Cargando agencias de Shalom...");
+  return extraerLista(await pedirJson(CONFIG.jsonUrl));
 }
 
 function limpiarTexto(valor) {
