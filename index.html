@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monchis — Registro de Envío por WhatsApp</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    /** @type {import('tailwindcss').Config} */
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'blush-pink': '#E8B4C2',
+            'champagne-gold': '#C8A769',
+            'deep-ink': '#1C1B1A',
+            'light-primary': '#7C535F',
+            'light-on-primary': '#FFFFFF',
+            'light-primary-container': '#E8B4C2',
+            'light-on-primary-container': '#6B4450',
+            'light-secondary': '#755A24',
+            'light-on-secondary': '#FFFFFF',
+            'light-secondary-container': '#FFDB99',
+            'light-on-secondary-container': '#795F28',
+            'light-tertiary': '#4A6549',
+            'light-on-tertiary': '#FFFFFF',
+            'light-tertiary-container': '#ACCAA8',
+            'light-on-tertiary-container': '#3C563B',
+            'light-error': '#BA1A1A',
+            'light-on-error': '#FFFFFF',
+            'light-error-container': '#FFDAD6',
+            'light-on-error-container': '#93000A',
+            'light-background': '#FDF9F6',
+            'light-on-background': '#1C1B1A',
+            'light-surface': '#FDF9F6',
+            'light-surface-dim': '#DDD9D6',
+            'light-surface-bright': '#FDF9F6',
+            'light-surface-container-lowest': '#FFFFFF',
+            'light-surface-container-low': '#F7F3F0',
+            'light-surface-container': '#F1EDEA',
+            'light-surface-container-high': '#EBE7E5',
+            'light-surface-container-highest': '#E5E2DF',
+            'light-on-surface': '#1C1B1A',
+            'light-surface-variant': '#F0DEE1',
+            'light-on-surface-variant': '#504446',
+            'light-outline': '#827476',
+            'light-outline-variant': '#D3C2C5',
+            'light-inverse-surface': '#31302F',
+            'light-inverse-on-surface': '#F4F0ED',
+            'light-inverse-primary': '#EDB9C7',
+            'light-shadow': '#000000',
+            'light-scrim': '#000000',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '12px',
+            'md': '14px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          spacing: {
+            'gutter-xs': '4px',
+            'gutter-sm': '8px',
+            'gutter-md': '16px',
+            'gutter-lg': '24px',
+            'gutter-xl': '32px',
+            'section': '40px',
+            'page-margin': '20px',
+          },
+          fontFamily: {
+            'display': ['"Crimson Pro"', 'serif'],
+            'headline': ['"Crimson Pro"', 'serif'],
+            'title': ['"Commissioner"', 'sans-serif'],
+            'body': ['"Commissioner"', 'sans-serif'],
+            'label': ['"Commissioner"', 'sans-serif'],
+            'mono': ['"Spline Sans Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Crimson+Pro:ital,wght@0,500;0,600;0,700;1,500&family=Spline+Sans+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[100dvh] w-full bg-gradient-to-b from-blush-pink/65 via-light-background to-light-on-primary-container/85 px-gutter-sm py-gutter-lg sm:px-gutter-lg sm:py-section flex flex-col items-center justify-center">
+    <main class="w-full max-w-2xl bg-light-surface-container-lowest/95 rounded-xl border-2 border-champagne-gold/75 shadow-lg p-1.5 sm:p-gutter-sm relative">
+      <div class="rounded-lg border border-dashed border-blush-pink/80 px-gutter-md pt-gutter-lg pb-16 sm:p-gutter-xl flex flex-col gap-gutter-lg relative">
+
+        <!-- Ornamentos coquette en las 4 esquinas -->
+        <svg class="pointer-events-none absolute top-1 left-1 w-11 h-11 sm:top-2 sm:left-2 sm:w-16 sm:h-16" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M4 36 C4 16, 16 4, 36 4" stroke="#C8A769" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M8 28 C8 16, 16 8, 28 8" stroke="#C8A769" stroke-width="1" stroke-dasharray="2 2"></path>
+          <path d="M16 14 C11 10, 7 13, 10 18 C13 21, 16 17, 16 14 Z" fill="#1C1B1A"></path>
+          <path d="M16 14 C21 10, 25 13, 22 18 C19 21, 16 17, 16 14 Z" fill="#1C1B1A"></path>
+          <path d="M15 16 L11 25 M17 16 L21 25" stroke="#1C1B1A" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="16" cy="14" r="2.2" fill="#C8A769"></circle>
+          <circle cx="27" cy="11" r="3" fill="#E8B4C2"></circle>
+          <circle cx="27" cy="11" r="1.2" fill="#7C535F"></circle>
+          <circle cx="10" cy="27" r="2.2" fill="#E8B4C2"></circle>
+          <circle cx="38" cy="6" r="1" fill="#C8A769"></circle>
+        </svg>
+        <svg class="pointer-events-none absolute top-1 right-1 w-11 h-11 sm:top-2 sm:right-2 sm:w-16 sm:h-16 scale-x-[-1]" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M4 36 C4 16, 16 4, 36 4" stroke="#C8A769" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M8 28 C8 16, 16 8, 28 8" stroke="#C8A769" stroke-width="1" stroke-dasharray="2 2"></path>
+          <path d="M16 14 C11 10, 7 13, 10 18 C13 21, 16 17, 16 14 Z" fill="#E8B4C2"></path>
+          <path d="M16 14 C21 10, 25 13, 22 18 C19 21, 16 17, 16 14 Z" fill="#E8B4C2"></path>
+          <path d="M15 16 L11 25 M17 16 L21 25" stroke="#E8B4C2" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="16" cy="14" r="2.2" fill="#C8A769"></circle>
+          <circle cx="27" cy="11" r="3" fill="#E8B4C2"></circle>
+          <circle cx="27" cy="11" r="1.2" fill="#7C535F"></circle>
+          <circle cx="10" cy="27" r="2.2" fill="#C8A769"></circle>
+        </svg>
+        <svg class="pointer-events-none absolute bottom-1 left-1 w-11 h-11 sm:bottom-2 sm:left-2 sm:w-16 sm:h-16 scale-y-[-1]" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M4 36 C4 16, 16 4, 36 4" stroke="#C8A769" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M8 28 C8 16, 16 8, 28 8" stroke="#C8A769" stroke-width="1" stroke-dasharray="2 2"></path>
+          <path d="M16 14 C11 10, 7 13, 10 18 C13 21, 16 17, 16 14 Z" fill="#E8B4C2"></path>
+          <path d="M16 14 C21 10, 25 13, 22 18 C19 21, 16 17, 16 14 Z" fill="#E8B4C2"></path>
+          <path d="M15 16 L11 25 M17 16 L21 25" stroke="#E8B4C2" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="16" cy="14" r="2.2" fill="#C8A769"></circle>
+          <circle cx="27" cy="11" r="3" fill="#E8B4C2"></circle>
+          <circle cx="27" cy="11" r="1.2" fill="#7C535F"></circle>
+          <circle cx="10" cy="27" r="2.2" fill="#C8A769"></circle>
+        </svg>
+        <svg class="pointer-events-none absolute bottom-1 right-1 w-11 h-11 sm:bottom-2 sm:right-2 sm:w-16 sm:h-16 scale-[-1]" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M4 36 C4 16, 16 4, 36 4" stroke="#C8A769" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M8 28 C8 16, 16 8, 28 8" stroke="#C8A769" stroke-width="1" stroke-dasharray="2 2"></path>
+          <path d="M16 14 C11 10, 7 13, 10 18 C13 21, 16 17, 16 14 Z" fill="#1C1B1A"></path>
+          <path d="M16 14 C21 10, 25 13, 22 18 C19 21, 16 17, 16 14 Z" fill="#1C1B1A"></path>
+          <path d="M15 16 L11 25 M17 16 L21 25" stroke="#1C1B1A" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="16" cy="14" r="2.2" fill="#C8A769"></circle>
+          <circle cx="27" cy="11" r="3" fill="#E8B4C2"></circle>
+          <circle cx="27" cy="11" r="1.2" fill="#7C535F"></circle>
+          <circle cx="10" cy="27" r="2.2" fill="#E8B4C2"></circle>
+        </svg>
+
+        <!-- Cabecera de marca -->
+        <header class="flex flex-col items-center text-center gap-gutter-sm pt-gutter-xs">
+          <div class="relative p-1 rounded-full border-2 border-champagne-gold bg-light-surface shadow-sm">
+            <!-- Guarda tu logo como ./img/logo-monchis.png o pega aquí tu data:image/png;base64,... -->
+            <img src="./img/logo-monchis.png" alt="Logo Monchis — Ropa Coreana"
+              class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover" />
+          </div>
+          <div>
+            <h1 class="font-display text-3xl sm:text-4xl font-semibold text-deep-ink tracking-tight">Monchis</h1>
+            <p class="text-xs sm:text-sm text-light-on-surface-variant">Registro de envío por agencia Shalom vía WhatsApp</p>
+          </div>
+          <p id="estado-sistema" role="status" aria-live="polite"
+            class="font-mono text-xs bg-light-surface-variant/70 text-light-on-primary-container border border-champagne-gold/50 rounded-full px-3.5 py-1 max-w-full">
+            Iniciando...
+          </p>
+        </header>
+
+        <!-- Formulario -->
+        <form id="form-envio" class="flex flex-col gap-gutter-md" novalidate>
+          <div>
+            <label for="input-nombre" class="block text-sm font-semibold text-deep-ink mb-1">
+              Nombre completo del destinatario
+            </label>
+            <input type="text" id="input-nombre" required autocomplete="name" placeholder="Ej. Camila Andrea Quispe"
+              class="w-full px-3.5 py-2.5 bg-light-surface border border-light-outline-variant rounded text-base sm:text-sm text-deep-ink uppercase focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter-md">
+            <div>
+              <label for="input-dni" class="block text-sm font-semibold text-deep-ink mb-1">
+                DNI
+              </label>
+              <input type="text" id="input-dni" maxlength="12" inputmode="numeric" required placeholder="8 dígitos"
+                class="w-full px-3.5 py-2.5 bg-light-surface border border-light-outline-variant rounded text-base sm:text-sm text-deep-ink font-mono focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition" />
+            </div>
+
+            <div>
+              <label for="input-celular" class="block text-sm font-semibold text-deep-ink mb-1">
+                Celular
+              </label>
+              <input type="tel" id="input-celular" maxlength="9" inputmode="numeric" required autocomplete="tel-national" placeholder="9XXXXXXXX"
+                class="w-full px-3.5 py-2.5 bg-light-surface border border-light-outline-variant rounded text-base sm:text-sm text-deep-ink font-mono focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition" />
+            </div>
+          </div>
+
+          <div>
+            <label for="select-departamento" class="block text-sm font-semibold text-deep-ink mb-1">
+              Departamento
+            </label>
+            <select id="select-departamento" disabled required
+              class="w-full px-3.5 py-2.5 bg-light-surface disabled:bg-light-surface-container text-base sm:text-sm text-deep-ink border border-light-outline-variant rounded focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition">
+              <option value="">Cargando...</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="select-zona" class="block text-sm font-semibold text-deep-ink mb-1">
+              Provincia / Distrito
+            </label>
+            <select id="select-zona" disabled required
+              class="w-full px-3.5 py-2.5 bg-light-surface disabled:bg-light-surface-container text-base sm:text-sm text-deep-ink border border-light-outline-variant rounded focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition">
+              <option value="">Primero elige departamento</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="select-agencia" class="block text-sm font-semibold text-deep-ink mb-1">
+              Agencia Shalom activa
+            </label>
+            <select id="select-agencia" disabled required
+              class="w-full px-3.5 py-2.5 bg-light-surface disabled:bg-light-surface-container text-base sm:text-sm text-deep-ink border border-light-outline-variant rounded focus:border-light-primary focus:ring-2 focus:ring-blush-pink/60 outline-none transition">
+              <option value="">Primero elige zona</option>
+            </select>
+
+            <!-- Detalle de la agencia elegida -->
+            <div id="info-agencia" class="hidden mt-2 rounded border border-champagne-gold/50 bg-light-surface-variant/40 px-3.5 py-3 text-sm text-light-on-surface-variant break-words">
+              <p><span class="font-semibold text-deep-ink">Dirección:</span> <span id="info-direccion"></span></p>
+              <a id="enlace-mapa" href="#" target="_blank" rel="noopener"
+                class="mt-2 inline-flex items-center gap-1 min-h-[40px] text-light-primary font-semibold underline underline-offset-2">
+                📍 Ver agencia en Google Maps
+              </a>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-enviar" disabled
+            class="mt-2 w-full min-h-[48px] py-3 px-5 rounded-md font-semibold text-sm tracking-wide bg-light-on-primary-container text-white border border-champagne-gold hover:bg-light-primary disabled:bg-light-surface-container-highest disabled:text-light-outline disabled:border-light-outline-variant transition cursor-pointer disabled:cursor-not-allowed shadow-sm">
+            Enviar datos
+          </button>
+        </form>
+
+        <!-- Confirmación -->
+        <section id="vista-confirmacion" class="hidden flex flex-col gap-gutter-md" aria-live="polite">
+          <div class="flex flex-col items-center text-center gap-gutter-sm">
+            <h2 class="font-display text-2xl sm:text-3xl font-semibold text-deep-ink">✅ ¡Solicitud enviada!</h2>
+            <p class="text-sm text-light-on-surface-variant break-words">
+              Tu pedido <strong id="conf-pedido" class="text-deep-ink"></strong> ya fue enviado y se encuentra en proceso de despacho.
+            </p>
+            <span class="inline-block rounded-full bg-light-tertiary-container text-light-on-tertiary-container text-xs font-semibold tracking-wide px-3.5 py-1">
+              EN DESPACHO
+            </span>
+            <p class="text-xs text-light-on-surface-variant">
+              Solicitud registrada el: <span id="conf-fecha"></span>
+            </p>
+          </div>
+
+          <div class="rounded border border-champagne-gold/50 bg-light-surface px-gutter-md py-gutter-md">
+            <h3 class="font-semibold text-deep-ink mb-2">Detalles del envío</h3>
+            <dl class="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm break-words">
+              <dt class="font-semibold text-deep-ink">Nombre:</dt>
+              <dd id="conf-nombre" class="mb-1 sm:mb-0"></dd>
+              <dt class="font-semibold text-deep-ink">Transportista:</dt>
+              <dd class="mb-1 sm:mb-0">Shalom</dd>
+              <dt class="font-semibold text-deep-ink">Tipo:</dt>
+              <dd class="mb-1 sm:mb-0">Agencia</dd>
+              <dt class="font-semibold text-deep-ink">Dirección:</dt>
+              <dd id="conf-direccion" class="mb-1 sm:mb-0"></dd>
+              <dt class="font-semibold text-deep-ink">Sede:</dt>
+              <dd id="conf-sede"></dd>
+            </dl>
+          </div>
+
+          <p class="text-xs text-center text-light-on-surface-variant">
+            Si WhatsApp no se abrió, toca el primer botón y presiona <em>enviar</em> en el chat.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-gutter-sm">
+            <a id="btn-whatsapp-reabrir" href="#" target="_blank" rel="noopener"
+              class="flex-1 min-h-[48px] inline-flex items-center justify-center py-3 px-5 rounded-md font-semibold text-sm bg-light-on-primary-container text-white border border-champagne-gold hover:bg-light-primary transition shadow-sm text-center">
+              Abrir WhatsApp
+            </a>
+            <button type="button" id="btn-nuevo"
+              class="flex-1 min-h-[48px] py-3 px-5 rounded-md font-semibold text-sm bg-light-surface text-light-on-primary-container border border-champagne-gold hover:bg-light-surface-variant/60 transition cursor-pointer">
+              Hacer otro envío
+            </button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
